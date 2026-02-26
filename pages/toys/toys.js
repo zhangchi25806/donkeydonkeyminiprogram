@@ -22,13 +22,8 @@ Page({
       { id: 6, name: '儿童益智魔方套装', price: 89, originalPrice: 120, sales: 990, rating: 4.9, tag: '畅销', category: 6, color: '#FF9671' },
       { id: 7, name: '高速遥控赛车', price: 359, originalPrice: 420, sales: 330, rating: 4.7, tag: '', category: 1, color: '#FF6B35' },
       { id: 8, name: '星战系列积木飞船', price: 799, originalPrice: 999, sales: 156, rating: 4.9, tag: '限定', category: 2, color: '#845EC2' },
-    ]
-  },
-
-  get filteredProducts() {
-    const { activeCategory, products } = this.data;
-    if (activeCategory === 0) return products;
-    return products.filter(p => p.category === activeCategory);
+    ],
+    displayProducts: []
   },
 
   onLoad() {
