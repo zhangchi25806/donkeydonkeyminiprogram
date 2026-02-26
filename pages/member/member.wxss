@@ -1,0 +1,284 @@
+/* pages/member/member.wxss */
+page {
+  background: #f5f5f5;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  flex: 1;
+}
+
+/* Member Card */
+.member-card {
+  background: linear-gradient(135deg, #FF8C00, #FF5D00);
+  margin: 24rpx;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 8rpx 24rpx rgba(255, 93, 0, 0.35);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28rpx;
+}
+
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.crown {
+  font-size: 64rpx;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.level-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.points-label {
+  font-size: 26rpx;
+  color: rgba(255,255,255,0.85);
+}
+
+.renew-btn {
+  border: 2rpx solid rgba(255,255,255,0.8);
+  color: #fff;
+  font-size: 26rpx;
+  padding: 10rpx 28rpx;
+  border-radius: 30rpx;
+}
+
+/* Progress */
+.progress-section {}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.progress-current {
+  font-size: 24rpx;
+  color: rgba(255,255,255,0.9);
+}
+
+.progress-next {
+  font-size: 24rpx;
+  color: rgba(255,255,255,0.8);
+}
+
+.progress-bar {
+  height: 12rpx;
+  background: rgba(255,255,255,0.3);
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 6rpx;
+}
+
+/* Section */
+.section {
+  background: #fff;
+  margin: 0 0 20rpx 0;
+  padding: 28rpx 24rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #222;
+}
+
+.section-action {
+  font-size: 26rpx;
+  color: #FF5D00;
+}
+
+/* Points History */
+.points-history {}
+
+.points-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.points-row:last-child {
+  border-bottom: none;
+}
+
+.points-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.points-desc {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.points-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.points-value {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.points-earn {
+  color: #FF5D00;
+}
+
+.points-spend {
+  color: #999;
+}
+
+/* Plans */
+.plans {
+  display: flex;
+  gap: 16rpx;
+}
+
+.plan-card {
+  flex: 1;
+  border: 2rpx solid #eee;
+  border-radius: 16rpx;
+  padding: 24rpx 16rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+  overflow: hidden;
+}
+
+.plan-highlight {
+  border-color: #FF5D00;
+  background: #fff8f5;
+}
+
+.plan-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #FF5D00;
+  color: #fff;
+  font-size: 18rpx;
+  padding: 4rpx 14rpx;
+  border-bottom-left-radius: 12rpx;
+}
+
+.plan-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #222;
+}
+
+.plan-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 2rpx;
+}
+
+.plan-price {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #FF5D00;
+}
+
+.plan-unit {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.plan-desc {
+  font-size: 22rpx;
+  color: #666;
+  text-align: center;
+}
+
+.plan-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  width: 100%;
+  margin: 8rpx 0;
+}
+
+.perk {
+  font-size: 22rpx;
+  color: #555;
+  display: block;
+}
+
+.plan-btn {
+  background: #FF5D00;
+  color: #fff;
+  font-size: 26rpx;
+  padding: 14rpx 0;
+  border-radius: 40rpx;
+  text-align: center;
+  width: 100%;
+  margin-top: 8rpx;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.benefit-item {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 8rpx;
+  gap: 8rpx;
+}
+
+.benefit-icon {
+  font-size: 56rpx;
+}
+
+.benefit-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #222;
+}
+
+.benefit-desc {
+  font-size: 22rpx;
+  color: #999;
+  text-align: center;
+}

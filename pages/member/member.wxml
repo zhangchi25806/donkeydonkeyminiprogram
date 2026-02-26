@@ -1,0 +1,98 @@
+<!--pages/member/member.wxml-->
+<scroll-view class="page" scroll-y>
+
+  <!-- Member Card -->
+  <view class="member-card">
+    <view class="card-top">
+      <view class="card-left">
+        <view class="crown">👑</view>
+        <view class="card-info">
+          <text class="level-name">{{userLevel}}</text>
+          <text class="points-label">积分 {{userPoints}}</text>
+        </view>
+      </view>
+      <view class="card-right">
+        <text class="renew-btn">续费</text>
+      </view>
+    </view>
+
+    <!-- Progress Bar -->
+    <view class="progress-section">
+      <view class="progress-labels">
+        <text class="progress-current">{{userLevel}}</text>
+        <text class="progress-next">距{{nextLevel}}还差 {{pointsToNext}} 积分</text>
+      </view>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width:{{levelProgress}}%"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Points Section -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">我的积分</text>
+      <text class="section-action" bindtap="onExchangeTap">积分兑换 &gt;</text>
+    </view>
+    <view class="points-history">
+      <view
+        class="points-row"
+        wx:for="{{pointsHistory}}"
+        wx:key="id"
+      >
+        <view class="points-left">
+          <text class="points-desc">{{item.desc}}</text>
+          <text class="points-time">{{item.time}}</text>
+        </view>
+        <text class="points-value {{item.type === 'earn' ? 'points-earn' : 'points-spend'}}">{{item.points}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Membership Plans -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">开通会员</text>
+    </view>
+    <view class="plans">
+      <view
+        class="plan-card {{item.highlight ? 'plan-highlight' : ''}}"
+        wx:for="{{plans}}"
+        wx:key="id"
+        bindtap="onPlanSelect"
+        data-name="{{item.name}}"
+      >
+        <view class="plan-badge" wx:if="{{item.badge}}">{{item.badge}}</view>
+        <text class="plan-name">{{item.name}}</text>
+        <view class="plan-price-row">
+          <text class="plan-price">¥{{item.price}}</text>
+          <text class="plan-unit">{{item.unit}}</text>
+        </view>
+        <text class="plan-desc">{{item.desc}}</text>
+        <view class="plan-perks">
+          <text class="perk" wx:for="{{item.perks}}" wx:key="index" wx:for-item="perk">✓ {{perk}}</text>
+        </view>
+        <view class="plan-btn">立即开通</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Benefits Grid -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">会员特权</text>
+    </view>
+    <view class="benefits-grid">
+      <view
+        class="benefit-item"
+        wx:for="{{benefits}}"
+        wx:key="index"
+      >
+        <text class="benefit-icon">{{item.icon}}</text>
+        <text class="benefit-title">{{item.title}}</text>
+        <text class="benefit-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

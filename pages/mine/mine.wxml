@@ -1,0 +1,65 @@
+<!--pages/mine/mine.wxml-->
+<scroll-view class="page" scroll-y>
+
+  <!-- Profile Header -->
+  <view class="profile-header" bindtap="onProfileTap">
+    <view class="profile-avatar">{{userInfo.avatar}}</view>
+    <view class="profile-info">
+      <text class="profile-nickname">{{userInfo.nickname}}</text>
+      <view class="profile-meta">
+        <text class="profile-id">{{userInfo.id}}</text>
+        <view class="profile-badge">{{userInfo.level}}</view>
+      </view>
+    </view>
+    <view class="profile-arrow">&gt;</view>
+  </view>
+
+  <!-- Order Section -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">我的订单</text>
+      <text class="section-action" bindtap="onAllOrdersTap">全部订单 &gt;</text>
+    </view>
+    <view class="order-tabs">
+      <view
+        class="order-tab"
+        wx:for="{{orderTabs}}"
+        wx:key="index"
+        bindtap="onOrderTabTap"
+        data-label="{{item.label}}"
+      >
+        <text class="order-tab-icon">{{item.icon}}</text>
+        <text class="order-tab-label">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Menu Groups -->
+  <view
+    class="menu-group"
+    wx:for="{{menuItems}}"
+    wx:key="group"
+    wx:for-item="group"
+  >
+    <view class="group-title">{{group.group}}</view>
+    <view class="menu-list">
+      <view
+        class="menu-item"
+        wx:for="{{group.items}}"
+        wx:key="label"
+        bindtap="onMenuItemTap"
+        data-label="{{item.label}}"
+      >
+        <view class="menu-left">
+          <text class="menu-icon">{{item.icon}}</text>
+          <text class="menu-label">{{item.label}}</text>
+        </view>
+        <view class="menu-right">
+          <text class="menu-value" wx:if="{{item.value}}">{{item.value}}</text>
+          <text class="menu-arrow" wx:if="{{item.arrow}}">&gt;</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

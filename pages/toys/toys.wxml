@@ -1,0 +1,77 @@
+<!--pages/toys/toys.wxml-->
+<view class="page">
+
+  <!-- Category Filter -->
+  <scroll-view class="category-scroll" scroll-x>
+    <view class="category-list">
+      <view
+        class="cat-item {{activeCategory === item.id ? 'cat-active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="id"
+        bindtap="onCategoryTap"
+        data-id="{{item.id}}"
+      >
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- Sort Bar -->
+  <view class="sort-bar">
+    <view class="sort-current" bindtap="onSortTap">
+      <text>{{sortOptions[activeSort]}}</text>
+      <text class="sort-arrow">{{showSortMenu ? '▲' : '▼'}}</text>
+    </view>
+  </view>
+
+  <!-- Sort Menu Dropdown -->
+  <view class="sort-menu" wx:if="{{showSortMenu}}">
+    <view
+      class="sort-option {{activeSort === index ? 'sort-option-active' : ''}}"
+      wx:for="{{sortOptions}}"
+      wx:key="index"
+      bindtap="onSortSelect"
+      data-index="{{index}}"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <!-- Product Grid -->
+  <scroll-view class="product-scroll" scroll-y>
+    <view class="product-grid">
+      <view
+        class="product-card"
+        wx:for="{{displayProducts}}"
+        wx:key="id"
+        bindtap="onProductTap"
+        data-name="{{item.name}}"
+      >
+        <!-- Product Image Placeholder -->
+        <view class="product-img" style="background:{{item.color}}">
+          <view class="product-tag" wx:if="{{item.tag}}">{{item.tag}}</view>
+        </view>
+
+        <!-- Product Info -->
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+          <view class="product-rating">
+            <text class="stars">★★★★★</text>
+            <text class="rating-val">{{item.rating}}</text>
+            <text class="sales-val">销量{{item.sales}}</text>
+          </view>
+          <view class="product-price-row">
+            <view class="price-group">
+              <text class="price">¥{{item.price}}</text>
+              <text class="original-price">¥{{item.originalPrice}}</text>
+            </view>
+            <view class="cart-btn" catchtap="onCartTap">
+              <text>+</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>

@@ -1,0 +1,71 @@
+<!--pages/square/square.wxml-->
+<view class="page">
+
+  <!-- Tabs -->
+  <view class="tabs">
+    <view
+      class="tab {{activeTab === index ? 'tab-active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="index"
+      bindtap="onTabTap"
+      data-index="{{index}}"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <!-- Posts Feed -->
+  <scroll-view class="feed" scroll-y>
+    <view
+      class="post-card"
+      wx:for="{{posts}}"
+      wx:key="id"
+    >
+      <!-- Post Header -->
+      <view class="post-header">
+        <view class="avatar">{{item.avatar}}</view>
+        <view class="post-meta">
+          <text class="username">{{item.username}}</text>
+          <text class="post-time">{{item.time}}</text>
+        </view>
+        <view class="follow-btn">+ 关注</view>
+      </view>
+
+      <!-- Post Content -->
+      <text class="post-content">{{item.content}}</text>
+
+      <!-- Post Images -->
+      <view class="post-images" wx:if="{{item.images.length > 0}}">
+        <view
+          class="post-img {{item.images.length === 1 ? 'post-img-single' : ''}}"
+          wx:for="{{item.images}}"
+          wx:for-item="color"
+          wx:key="index"
+          style="background:{{color}}"
+        ></view>
+      </view>
+
+      <!-- Post Actions -->
+      <view class="post-actions">
+        <view class="action" bindtap="onLikeTap" data-id="{{item.id}}">
+          <text class="action-icon {{item.liked ? 'action-liked' : ''}}">{{item.liked ? '❤️' : '🤍'}}</text>
+          <text class="action-count {{item.liked ? 'action-liked' : ''}}">{{item.likes}}</text>
+        </view>
+        <view class="action" bindtap="onCommentTap" data-id="{{item.id}}">
+          <text class="action-icon">💬</text>
+          <text class="action-count">{{item.comments}}</text>
+        </view>
+        <view class="action" bindtap="onShareTap" data-id="{{item.id}}">
+          <text class="action-icon">↗️</text>
+          <text class="action-count">分享</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- Post Button -->
+  <view class="post-fab" bindtap="onPostTap">
+    <text class="post-fab-icon">✏️</text>
+  </view>
+
+</view>

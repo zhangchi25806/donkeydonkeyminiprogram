@@ -1,12 +1,55 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/square/square",
+    "pages/toys/toys",
+    "pages/member/member",
+    "pages/mine/mine",
     "pages/index/index",
     "pages/logs/logs"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "玩具广场",
     "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF5D00",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "images/square.png",
+        "selectedIconPath": "images/square-active.png"
+      },
+      {
+        "pagePath": "pages/toys/toys",
+        "text": "玩具",
+        "iconPath": "images/toys.png",
+        "selectedIconPath": "images/toys-active.png"
+      },
+      {
+        "pagePath": "pages/member/member",
+        "text": "会员",
+        "iconPath": "images/member.png",
+        "selectedIconPath": "images/member-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine-active.png"
+      }
+    ]
   },
   "style": "v2",
   "componentFramework": "glass-easel",

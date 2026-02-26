@@ -1,0 +1,72 @@
+<!--pages/home/home.wxml-->
+<scroll-view class="page" scroll-y>
+
+  <!-- Search Bar -->
+  <view class="search-bar">
+    <view class="search-input">
+      <text class="search-icon">🔍</text>
+      <text class="search-placeholder">搜索玩具、品牌...</text>
+    </view>
+    <view class="search-btn">搜索</view>
+  </view>
+
+  <!-- Banner -->
+  <swiper class="banner" indicator-dots autoplay interval="3000" circular>
+    <swiper-item
+      wx:for="{{banners}}"
+      wx:key="id"
+      bindtap="onBannerTap"
+      data-id="{{item.id}}"
+    >
+      <view class="banner-item" style="background:{{item.color}}">
+        <text class="banner-title">{{item.title}}</text>
+        <text class="banner-desc">{{item.desc}}</text>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- Categories -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">分类</text>
+    </view>
+    <view class="category-grid">
+      <view
+        class="category-item"
+        wx:for="{{categories}}"
+        wx:key="id"
+        bindtap="onCategoryTap"
+        data-name="{{item.name}}"
+      >
+        <view class="category-icon">{{item.icon}}</view>
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Hot Items -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">热门推荐</text>
+      <text class="section-more">更多 &gt;</text>
+    </view>
+    <view class="item-grid">
+      <view
+        class="item-card"
+        wx:for="{{hotItems}}"
+        wx:key="id"
+        bindtap="onItemTap"
+        data-name="{{item.name}}"
+      >
+        <view class="item-image">
+          <view class="item-tag">{{item.tag}}</view>
+        </view>
+        <view class="item-info">
+          <text class="item-name">{{item.name}}</text>
+          <text class="item-price">{{item.price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>
